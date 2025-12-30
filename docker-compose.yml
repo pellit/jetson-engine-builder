@@ -1,23 +1,24 @@
-version: "3.8"
+version: "2.3"
+
 services:
   engine_builder:
     build: .
+    image: jetson-engine-builder:r32
     container_name: jetson_engine_builder
     restart: unless-stopped
+
     ports:
       - "8000:8000"
+
     environment:
       - DATA_DIR=/data
       - PORT=8000
       - MAX_UPLOAD_MB=200
       - JOB_TTL_HOURS=24
       - MAX_CONCURRENT_JOBS=1
+
     volumes:
       - ./data:/data
       - /usr/src/tensorrt:/usr/src/tensorrt:ro
+
     runtime: nvidia
-    deploy:
-      resources:
-        limits:
-          memory: 4G
-          cpus: '2.0'

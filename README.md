@@ -52,6 +52,8 @@ cd ~/jetson-engine-builder
 docker compose up -d --build
 docker logs -f jetson_engine_builder
 
+git pull && sudo docker-compose -f docker-compose.yml up -d --build --remove-orphans --force-recreate && sudo docker logs -f jetson_engine_builder
+
 
 
 # Usar la UI
