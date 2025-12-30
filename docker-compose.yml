@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  engine_builder:
+    build: .
+    container_name: jetson_engine_builder
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - DATA_DIR=/data
+      - PORT=8000
+    volumes:
+      - ./data:/data
+      - /usr/src/tensorrt:/usr/src/tensorrt:ro
+    runtime: nvidia
