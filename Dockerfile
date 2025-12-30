@@ -6,8 +6,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    python3 python3-pip python3-dev \
-    git ca-certificates \
+    python3 python3-pip \
+    ca-certificates \
     libglib2.0-0 libsm6 libxext6 libxrender1 \
     && rm -rf /var/lib/apt/lists/*
 
@@ -19,4 +19,3 @@ COPY app/main.py /app/main.py
 
 EXPOSE 8000
 CMD ["python3", "/app/main.py"]
-
