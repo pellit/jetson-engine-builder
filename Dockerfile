@@ -2,7 +2,7 @@ FROM nvcr.io/nvidia/l4t-base:r32.7.1
 
 ENV DEBIAN_FRONTEND=noninteractive \
     DATA_DIR=/data \
-    PORT=8000 \
+    PORT=8001 \
     PYTHONUNBUFFERED=1
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -17,5 +17,5 @@ RUN python3.11 -m pip install --no-cache-dir -r /app/requirements.txt
 
 COPY app/main.py /app/main.py
 
-EXPOSE 8000
+EXPOSE 8001
 CMD ["python3.11", "/app/main.py"]

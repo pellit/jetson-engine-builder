@@ -8,11 +8,11 @@ services:
     restart: unless-stopped
 
     ports:
-      - "8000:8000"
+      - "8001:8001"
 
     environment:
       - DATA_DIR=/data
-      - PORT=8000
+      - PORT=8001
       - MAX_UPLOAD_MB=200
       - JOB_TTL_HOURS=24
       - MAX_CONCURRENT_JOBS=1
